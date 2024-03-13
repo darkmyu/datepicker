@@ -3,13 +3,15 @@
   "version": "0.0.1",
   "license": "MIT",
   "author": "darkmyu",
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
-  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-
+    "build": "rollup -c"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -23,6 +25,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.71.1",
     "style-inject": "^0.3.0",
+    "tslib": "^2.6.2",
     "typescript": "^5.4.2"
   },
   "peerDependencies": {

@@ -8,13 +8,13 @@
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,
-    "declarationDir": "./dist/types",
+    "declarationDir": "./dist",
     "sourceMap": false,
     "outDir": "./dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "removeComments": true
+    "removeComments": true,
   },
   "include": [
     "./src"
