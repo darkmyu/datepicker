@@ -1,0 +1,31 @@
+{
+  "name": "@bammyu/datepicker",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "darkmyu",
+  "main": "dist/index.ts",
+  "module": "dist/index.ts",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.65",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "rollup": "^4.13.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.71.1",
+    "style-inject": "^0.3.0",
+    "typescript": "^5.4.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
