@@ -11,7 +11,7 @@ const extensions = ['js', 'jsx', 'ts', 'tsx', 'mjs'];
 const config = [
   {
     external: [/node_modules/],
-    input: './src/index.ts',
+    input: './src/index.tsx',
     output: [
       {
         dir: './dist',
@@ -35,14 +35,7 @@ const config = [
       commonjs({ include: 'node_modules/**' }),
       peerDepsExternal(),
       typescript({ tsconfig: './tsconfig.json' }),
-      postcss({
-        extract: false,
-        inject: (cssVariableName) =>
-          `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`,
-        modules: true,
-        sourceMap: false,
-        use: ['sass'],
-      }),
+      postcss(),
     ],
   },
 ];
