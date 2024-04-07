@@ -1,23 +1,20 @@
 import './global.scss';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useDateArray } from './useDateArray';
 
 interface Props {
+  selected: Date;
   onChange: (date: Date) => void;
 }
 
 const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
 
-function DatePicker({ onChange }: Props) {
+function DatePicker({ selected, onChange }: Props) {
   const { dates } = useDateArray();
 
-  const [selectedDate, setSelectedDate] = useState<Date>();
-
-  const handleClickDate = (date: number) => {
-    const newDate = new Date(2024, 4, date);
-    onChange(newDate);
-    setSelectedDate(newDate);
+  const handleClickDate = (date: Date) => {
+    onChange(date);
   };
 
   return (
@@ -30,7 +27,7 @@ function DatePicker({ onChange }: Props) {
         ))}
         {dates.map((date, index) => (
           <div key={index} className={'datepicker__date'} onClick={() => handleClickDate(date)}>
-            {date}
+            {date.getDate()}
           </div>
         ))}
       </div>
