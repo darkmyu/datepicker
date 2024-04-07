@@ -1,5 +1,22 @@
 .datepicker__container {
-  width: 400px;
+}
+
+.datepicker__dates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+
+  .datepicker__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+  }
+
+  .datepicker__date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    cursor: pointer;
+  }
 }

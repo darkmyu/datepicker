@@ -1,8 +1,4 @@
-import './global.scss';
-
-import React from 'react';
-
-function DatePicker() {
+export function useDateArray() {
   const currentDate = new Date();
   const firstDate = new Date(currentDate.getFullYear(), currentDate.getMonth());
   const lastDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
@@ -17,19 +13,7 @@ function DatePicker() {
   const nextDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
   const nextDates = Array.from({ length: 6 - lastDate.getDay() }, (_, i) => nextDate.getDate() + i);
 
-  return (
-    <div className={'datepicker__container'}>
-      {prevDates.map((date) => (
-        <div key={date}>{date}</div>
-      ))}
-      {currentDates.map((date) => (
-        <div key={date}>{date}</div>
-      ))}
-      {nextDates.map((date) => (
-        <div key={date}>{date}</div>
-      ))}
-    </div>
-  );
-}
+  const dates = [...prevDates, ...currentDates, ...nextDates];
 
-export default DatePicker;
+  return { dates };
+}
