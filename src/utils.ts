@@ -1,3 +1,24 @@
+import { ClassNames } from './types';
+
+export function cn(...args: ClassNames[]) {
+  return args
+    .reduce<string[]>((acc, arg) => {
+      if (typeof arg === 'string') {
+        acc.push(arg);
+      }
+
+      if (typeof arg === 'object') {
+        Object.keys(arg)
+          .filter((key) => arg[key])
+          .forEach((key) => {
+            acc.push(key);
+          });
+      }
+      return acc;
+    }, [])
+    .join(' ');
+}
+
 export function isSame(a: Date, b: Date) {
   return (
     a.getFullYear() === b.getFullYear() &&

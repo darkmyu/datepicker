@@ -1,7 +1,7 @@
 import './global.scss';
 
 import React, { useState } from 'react';
-import { getDateArray, isSame } from './utils';
+import { cn, getDateArray, isSame } from './utils';
 
 interface Props {
   selected: Date;
@@ -37,7 +37,7 @@ function DatePicker({ selected, onChange }: Props) {
         {dates.map((date, index) => (
           <div
             key={index}
-            className={`datepicker__date${isSame(date, selectedDate) ? ' datepicker__date_active' : ''}`}
+            className={cn('datepicker__date', { active: isSame(date, selectedDate) })}
             onClick={() => handleClickDate(date)}
           >
             {date.getDate()}
