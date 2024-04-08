@@ -18,5 +18,11 @@
     justify-content: center;
     padding: 4px;
     cursor: pointer;
+
+    &.datepicker__date_active {
+      color: white;
+      background-color: green;
+      border-radius: 50%;
+    }
   }
 }

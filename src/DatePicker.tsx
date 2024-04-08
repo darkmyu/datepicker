@@ -1,7 +1,8 @@
 import './global.scss';
 
-import React from 'react';
-import { useDateArray } from './useDateArray';
+import React, { useState } from 'react';
+import { useDateArray } from './hooks/useDateArray';
+import { isSame } from './utils';
 
 interface Props {
   selected: Date;
@@ -13,7 +14,10 @@ const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
 function DatePicker({ selected, onChange }: Props) {
   const { dates } = useDateArray();
 
+  const [selectedDate, setSelectedDate] = useState<Date>(selected);
+
   const handleClickDate = (date: Date) => {
+    setSelectedDate(date);
     onChange(date);
   };
 
@@ -26,7 +30,11 @@ function DatePicker({ selected, onChange }: Props) {
           </div>
         ))}
         {dates.map((date, index) => (
-          <div key={index} className={'datepicker__date'} onClick={() => handleClickDate(date)}>
+          <div
+            key={index}
+            className={`datepicker__date${isSame(date, selectedDate) ? ' datepicker__date_active' : ''}`}
+            onClick={() => handleClickDate(date)}
+          >
             {date.getDate()}
           </div>
         ))}
