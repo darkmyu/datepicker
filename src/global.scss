@@ -1,28 +1,37 @@
 .datepicker__container {
-}
+  display: flex;
+  flex-direction: column;
 
-.datepicker__dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-
-  .datepicker__day {
+  .datepicker__header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 4px;
+    justify-content: space-around;
   }
 
-  .datepicker__date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-    cursor: pointer;
+  .datepicker__dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 
-    &.datepicker__date_active {
-      color: white;
-      background-color: green;
-      border-radius: 50%;
+    .datepicker__day {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      background-color: lightgray;
+    }
+
+    .datepicker__date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      cursor: pointer;
+
+      &.datepicker__date_active {
+        color: white;
+        background-color: green;
+        border-radius: 50%;
+      }
     }
   }
 }

@@ -1,8 +1,7 @@
 import './global.scss';
 
 import React, { useState } from 'react';
-import { useDateArray } from './hooks/useDateArray';
-import { isSame } from './utils';
+import { getDateArray, isSame } from './utils';
 
 interface Props {
   selected: Date;
@@ -12,9 +11,10 @@ interface Props {
 const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
 
 function DatePicker({ selected, onChange }: Props) {
-  const { dates } = useDateArray();
-
-  const [selectedDate, setSelectedDate] = useState<Date>(selected);
+  const dates = getDateArray();
+  const [selectedDate, setSelectedDate] = useState(selected);
+  const [selectedYear, setSelectedYear] = useState(selected.getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState(selected.getMonth());
 
   const handleClickDate = (date: Date) => {
     setSelectedDate(date);
@@ -23,6 +23,11 @@ function DatePicker({ selected, onChange }: Props) {
 
   return (
     <div className={'datepicker__container'}>
+      <div className={'datepicker__header'}>
+        <span>{'<'}</span>
+        <span>{`${selectedYear}년 ${selectedMonth}월`}</span>
+        <span>{'>'}</span>
+      </div>
       <div className={'datepicker__dates'}>
         {DAYS.map((day) => (
           <div key={day} className={'datepicker__day'}>
