@@ -28,9 +28,13 @@
       cursor: pointer;
 
       &.active {
-        color: white;
+        color: white !important;
         background-color: green;
         border-radius: 50%;
+      }
+
+      &.holiday {
+        color: red;
       }
     }
   }

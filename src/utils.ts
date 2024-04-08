@@ -39,8 +39,12 @@ export function isSameDate(a: Date, b: Date) {
   return a.getDate() === b.getDate();
 }
 
-export function getDateArray() {
-  const now = new Date();
+export function isEqualDay(target: Date, index: number) {
+  return target.getDay() === index;
+}
+
+export function getDateArray(initialDate?: Date) {
+  const now = new Date(initialDate ?? new Date());
   const firstDate = new Date(now.getFullYear(), now.getMonth());
   const lastDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
 
